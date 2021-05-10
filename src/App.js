@@ -88,7 +88,7 @@ function App() {
                    setUsername(e.target.value);
                }}
         />
-        <label>Password..</label>
+        <label>Parola</label>
         <input type="password"
                onChange={(e)=>{
                    setPassword(e.target.value);
