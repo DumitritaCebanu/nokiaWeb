@@ -26,22 +26,20 @@ exit(0);
 //print_r($_POST);
 //die();
 
-$name = $_POST['username'];
-//$email = $_POST['email'];
+//inputs
+
+$name = $_POST['name'];
+$surname = $_POST['surname'];
+$email = $_POST['email'];
+$telephone = $_POST['telephone'];
+$address = $_POST['address'];
+$username = $_POST['username'];
 $password = $_POST['password'];
-
-//$name = 'asd';
-//$email = '';
-//$password = 'asd123';
+$birth = $_POST['birth'];
+$gender = $_POST['gender'];
 
 
-//$method = $_SERVER['REQUEST_METHOD'];
-//$request = explode('/', trim($_SERVER['PATH_INFO'], '/'));
-
-//if(!$conn){
-    //die("Connection failed: ". mysqli_connect_error());
-//}
-
+//encoding password
 $password = hash('sha256', $password);
 
 function generateRandomString($length = 10) {
@@ -57,37 +55,35 @@ function generateRandomString($length = 10) {
 $salt = generateRandomString(10);
 
 
-//switch($method){
-    //case 'GET':
-        //$name = $_GET['name'];
-        //$email = $_GET['email'];
-        //$password = $_GET['password'];
-        //$sql = "SELECT * FROM [USER].[LOG]". ($email? "WHERE email=$email":'');
-        //break;
-    //case 'POST':
-        //$name = $_POST['name'];
-                //$email = $_POST['email'];
-                //$password = $_POST['password'];
         $sql = "
                 INSERT INTO [USER].[LOG]
-                    ([NUME],[PASSWORD],[SALT],[DATE])
+                    ([NUME],[EMAIL],[PASSWORD],[SALT],[DATE],[PRENUME],[TELEFON],[ADRESA],[USERNAME],[DATANASTERE],[GEN])
                 values(
                     :NUME,
+                    :EMAIL,
                     :PASSWORD,
                     :SALT,
-                    GETDATE()
-                )
-                ";
-               // break;
-   //}
-
+                    GETDATE(),
+                    :PRENUME,
+                    :TELEFON,
+                    :ADRESA,
+                    :USERNAME,
+                    :DATANASTERE,
+                    :GEN
+                )";
 
 
 $param = array(
 		'NUME' => $name,
-		//'EMAIL' => $email,
+		'EMAIL' => $email,
 		'PASSWORD' => $password,
-		'SALT' => $salt
+		'SALT' => $salt,
+		'PRENUME' => $surname,
+		'TELEFON' => $telephone,
+		'ADRESA' => $address,
+		'USERNAME' => $username,
+		'DATANASTERE' => $birth,
+		'GEN' => $gender
 );
 
 $stmt = $conn->prepare($sql);
