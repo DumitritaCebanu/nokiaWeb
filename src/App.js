@@ -66,38 +66,35 @@ function App() {
     };
 
   return (
-    <div className="App">
-        <div className="Registration">
-      <label>Username</label>
-      <input type="text"
-             onChange={(e)=>{
-               setUsernameReg(e.target.value);
-             }}
-             />
-      <label>Password</label>
-      <input type="password"
-             onChange={(e)=>{
-               setPasswordReg(e.target.value);
-             }}
-      />
-      <button onClick={register}>Register</button>
-        <br/>
-        <label>Username..</label>
-        <input type="text"
+
+<body className="App">
+<div className="header"></div>
+        <div className="container">
+        <div class="logoAndCreateContainer">
+        <div><img src="Nokia-Logo.png" class="logoNokia"></img></div>
+          <a href="/">Create new account</a>
+        </div>
+        <div class="signInDiv">
+        <div class="borderLeft">
+        <h1>Sign In</h1>
+          <input type="text" placeholder="Username" className="textbox"
                onChange={(e)=>{
                    setUsername(e.target.value);
                }}
         />
-        <label>Password..</label>
-        <input type="password"
+          <input type="password" placeholder="Password" className="textbox1"
                onChange={(e)=>{
                    setPassword(e.target.value);
                }}
         />
-        <button onClick={login}>Login</button>
+        <a href="/">Forgot password?</a>
+        <button onClick={login} className="login">Login</button>
         <h2>{loginStatus}</h2>
         </div>
-    </div>
+        </div>
+        </div>
+        <div className="footer"></div>
+    </body>
   );
 }
 export default App;
