@@ -1,38 +1,124 @@
+.App, html {
+  background-color: rgb(14, 78, 177);
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  
+}
+h1,h2{
+  margin: 0;
+  padding: 0;
+}
 .App {
-  text-align: center;
+  z-index: 1;
+  position: fixed;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.header {
+  height: 10%;
+  background: linear-gradient(to bottom, rgb(6, 51, 149), rgb(14, 78, 177) );
 }
+.container {
+  
+  height:80%;
+  display: inline-flex;
+  width: 100%;  
+}
+.footer {
+  height: 10%;
+  background: linear-gradient(to top, rgb(6, 51, 149), rgb(14, 78, 177) );
+}
+.logoAndCreateContainer {
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+  width: 57%;
+  height: 100%;
+  
   }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+  .logoNokia {
+  
+    width: 75%;
+    padding-left: 23%;
+    padding-top: 25%;
+    margin-bottom: 3%;
+  
   }
-  to {
-    transform: rotate(360deg);
+  .logoAndCreateContainer a {
+
+    color: white;
+    font-weight: bold;
+    font-size:calc(.4rem + 1.9vw);
+    margin-left: 42%;
+    text-decoration: none;
+    
   }
-}
+  .signInDiv {
+    flex-grow: 1;
+    margin-left: 20px;
+    
+  }
+  
+  .borderLeft {
+  
+    margin-top: 13%;
+    height: 73%;
+    border-left:3px solid white;
+    
+  }
+
+  h1 {
+
+    color: white;
+    padding-left: 10%;
+    padding-top: 10%;
+    font-size:calc(.5rem + 2vw);
+    margin-bottom: 5%;
+    
+  }
+
+  .textbox, .textbox1 {
+
+    margin-left: 10%;
+    border: none;
+    font-family: 'Leelawadee UI' ;
+    border-radius: 6px;
+    height: 13%;
+    width: 65%;
+    margin-bottom: 4%;
+    font-size:calc(.4rem + 1.3vw);
+    padding-left: 20px;
+    display: block;
+    }
+    
+    .textbox1 {
+      margin-bottom: 1%;
+      }
+
+      .login {
+
+        border: none;
+        font-family: 'Leelawadee UI' ;
+        border-radius: 6px;
+        height: 8%;
+        width: 15%;
+        font-size:calc(.2rem + 0.6vw);
+        margin-left: 63%;
+        display: block;
+        
+        }
+
+        .borderLeft a {
+
+          color: white;
+          font-size:calc(.5rem + 1vw);
+          margin-left: 10%;
+          font-style: italic;
+          text-decoration: none;
+          display: block;
+          margin-bottom: 6%;
+        
+        }       
+      .logoAndCreateContainer a:hover {
+
+        cursor: pointer;
+
+      }
