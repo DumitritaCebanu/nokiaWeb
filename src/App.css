@@ -1,23 +1,25 @@
-body, html {
+.App, html {
   background-color: rgb(14, 78, 177);
   height: 100%;
   width: 100%;
   margin: 0;
   padding: 0;
+  
 }
 h1,h2{
   margin: 0;
   padding: 0;
 }
 .App {
-  margin: 0;
-  padding: 0;
+  z-index: 1;
+  position: fixed;
 }
 .header {
   height: 10%;
   background: linear-gradient(to bottom, rgb(6, 51, 149), rgb(14, 78, 177) );
 }
 .container {
+  
   height:80%;
   display: inline-flex;
   width: 100%;  
@@ -115,3 +117,8 @@ h1,h2{
           margin-bottom: 6%;
         
         }       
+      .logoAndCreateContainer a:hover {
+
+        cursor: pointer;
+
+      }
