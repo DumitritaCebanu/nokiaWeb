@@ -5,8 +5,6 @@ import Axios from  'axios';
 import Popup from './Popup.js';
 
 
-
-
 class App extends React.Component{
     
     state={
@@ -46,9 +44,18 @@ class App extends React.Component{
       });
   };
 
+   handlePopup = (childData) => {
+
+    this.setState({showPopup:childData});
+
+   }
+
+  
+
     render() {
 
-      console.log(this.state.showPopup)
+      const {data} = this.state;
+
       return (
 
         <div className="App">
@@ -78,7 +85,7 @@ class App extends React.Component{
                 </div>
                 </div>
                 <div className="footer"></div>
-                <Popup displayProperty={this.state.showPopup}></Popup>
+                <Popup parentcallback={this.handlePopup} displayProperty={this.state.showPopup}></Popup>
             </div>
           );
 

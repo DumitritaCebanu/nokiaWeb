@@ -32,14 +32,19 @@ function Popup(props) {
         });
       };
 
-      
+    function changeDisplay(e) {
+
+        this.props.parentcallback(!this.props.displayProperty);
+        e.preventDefault();
+
+    }      
 
 return (
     <React.Fragment>
     {props.displayProperty && <div className="Popup1">
         <div id="overlay"></div>
         <div className="containerPop">
-            <button className="closeButton" onClick={()=>({showPopup:false})}>x</button>
+            <button className="closeButton" onClick={()=>{changeDisplay()}}>x</button>
         <h1>Registration</h1>
         
         <input type="text" placeholder="Name" className="box1" onChange={(e)=>{setNameReg(e.target.value);console.log(nameReg)}}></input>
