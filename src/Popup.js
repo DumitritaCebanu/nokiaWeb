@@ -14,17 +14,19 @@ function Popup(props) {
     const [birthReg, setBirthReg] = useState('');
     const [genderReg, setGenderReg] = useState('');
 
+    const [showPopup, setShowPopup] = useState()
+
     const register = () => {
         let parameters = new FormData();
             parameters.append('name',nameReg);
             parameters.append('surname',surnameReg);
-          parameters.append('email',emailReg);
-          parameters.append('telephone',telephoneReg);
-          parameters.append('address',addressReg);
-          parameters.append('username',usernameReg);
-          parameters.append('password',passwordReg);
-          parameters.append('birth',birthReg);
-          parameters.append('gender',genderReg);
+            parameters.append('email',emailReg);
+            parameters.append('telephone',telephoneReg);
+            parameters.append('address',addressReg);
+            parameters.append('username',usernameReg);
+            parameters.append('password',passwordReg);
+            parameters.append('birth',birthReg);
+            parameters.append('gender',genderReg);
         Axios.post('http://localhost/nokia_app/php/register.php',
                 parameters
             ).then((response) => {
@@ -32,14 +34,14 @@ function Popup(props) {
         });
       };
 
-      
+
 
 return (
     <React.Fragment>
     {props.displayProperty && <div className="Popup1">
         <div id="overlay"></div>
         <div className="containerPop">
-            <button className="closeButton" onClick={()=>({showPopup:false})}>x</button>
+            <button className="closeButton" onClick={()=>this.setState({showPopup:false})}>x</button>
         <h1>Registration</h1>
         
         <input type="text" placeholder="Name" className="box1" onChange={(e)=>{setNameReg(e.target.value);console.log(nameReg)}}></input>

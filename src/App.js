@@ -5,12 +5,9 @@ import Axios from  'axios';
 import Popup from './Popup.js';
 
 
-
-
 class App extends React.Component{
     
     state={
-
      usernameReg:'',
      passwordReg:'',
      nameReg:'',
@@ -21,10 +18,10 @@ class App extends React.Component{
      birthReg:'',
      genderReg:'',
      showPopup:false,
+
      username:'',
      password:'',
      loginStatus:''
-
     }
 
     constructor() {
@@ -38,11 +35,12 @@ class App extends React.Component{
       Axios.post('http://localhost/nokia_app/php/login.php', {
           parameters
       }).then((response) => {
-          if(response.data.message){
-              this.setState({loginStatus:response.data.message})
-          }else{
-              this.setState({loginStatus:response.data[0].username})
-          }
+          //if(response.data.message){
+          //    this.setState({loginStatus:response.data.message})
+          //}else{
+          //    this.setState({loginStatus:response.data[0].username})
+          //}
+          console.log(response);
       });
   };
 
@@ -72,7 +70,7 @@ class App extends React.Component{
                        }}
                 />
                 <a href="/">Forgot password?</a>
-                <button onClick={()=>this.login()} className="login">Login</button>
+                    <button onClick={()=>this.login()} className="login">Login</button>
                 <h2>{this.state.loginStatus}</h2>
                 </div>
                 </div>

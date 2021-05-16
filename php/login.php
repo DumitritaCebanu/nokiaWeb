@@ -24,25 +24,35 @@ exit(0);
 }
 
 
+//input fields
 $username = $_POST['username'];
 $password = $_POST['password'];
+//$username = 'maria';
+//$password = 'maria';
 
 $sql = "
-		SELECT TOP 1 FROM [USER].[LOG] WHERE USERNAME = :USERNAME
+		 SELECT TOP 1 * FROM [USER].[LOG] WHERE USERNAME = :USERNAME
 ";
 
-$param = array('USERNAME' => $username);
-
+$param = array(
+                'USERNAME' => $username
+                );
 try{
-	$stmt = $conn->prepare($sql);
+    $stmt = $conn->prepare($sql);
 	$stmt -> execute($param);
 	$result = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-	if($result[0]['PASSWORD'] == hash('sha256', $password.result[0]['SALT'])){
-		echo 'USERNAME and password are correct';
+    print_r($result);
+
+    $new_ps =  hash('sha256', $password.$result[0]['SALT']);
+    print_r($new_ps);
+
+	if($result[0]['PASSWORD'] == hash('sha256', $password.$result[0]['SALT'])){
+		echo 'You are logged in';
 	}else{
-		echo "Wrong credentials, please try again";
+		echo "Wrong credentials";
 	}
+
 }catch(Exeption $e){
 	echo "Fail";
 }

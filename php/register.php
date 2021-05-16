@@ -39,8 +39,6 @@ $birth = $_POST['birth'];
 $gender = $_POST['gender'];
 
 
-//encoding password
-$password = hash('sha256', $password);
 
 function generateRandomString($length = 10) {
     $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
@@ -53,6 +51,9 @@ function generateRandomString($length = 10) {
 }
 
 $salt = generateRandomString(10);
+
+//encoding password
+$password = hash('sha256', $password.$salt);
 
 
         $sql = "
@@ -99,26 +100,4 @@ try{
 }
 
 
-// run SQL statement
-//$result = mysqli_query($conn,$sql);
-
-// die if SQL statement failed
-//if (!$result) {
- // http_response_code(404);
- // die(mysqli_error($conn));
-//}
-
-//if ($method == 'GET') {
-    //if (!$email) echo '[';
-    //for ($i=0 ; $i<mysqli_num_rows($result) ; $i++) {
-      //echo ($i>0?',':'').json_encode(mysqli_fetch_object($result));
-    //}
-    //if (!$email) echo ']';
-//  } elseif ($method == 'POST') {
-//   echo json_encode($result);
- // } else {
- //   echo mysqli_affected_rows($con);
-  //}
-
-//$con->close();
 
