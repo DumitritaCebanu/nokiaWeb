@@ -25,7 +25,7 @@ function Popup(props) {
           parameters.append('password',passwordReg);
           parameters.append('birth',birthReg);
           parameters.append('gender',genderReg);
-        Axios.post('http://localhost/nokia_app/php/register.php',
+        Axios.post('http://localhost/nokia/register.php',
                 parameters
             ).then((response) => {
             console.log(response);
@@ -33,10 +33,7 @@ function Popup(props) {
       };
 
     function changeDisplay(e) {
-
-        this.props.parentcallback(!this.props.displayProperty);
-        e.preventDefault();
-
+        props.parentcallback(!props.displayProperty);
     }      
 
 return (
@@ -60,7 +57,7 @@ return (
         <input type="text" placeholder="Username" onChange={(e)=>{setUsernameReg(e.target.value);console.log(usernameReg)}}></input>
         <input type="password" placeholder="Password" onChange={(e)=>{setPasswordReg(e.target.value);console.log(passwordReg)}}></input>
         <input type="text" placeholder="Confirm password"></input>
-        <button  className="register" onClick={register}>Sign up</button>
+        <button  className="register" onClick={()=>{register();changeDisplay()}}>Sign up</button>
         </div>
         
     </div>}

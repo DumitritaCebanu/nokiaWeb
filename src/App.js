@@ -33,7 +33,7 @@ class App extends React.Component{
       let parameters = new FormData();
           parameters.append('username', this.state.username);
           parameters.append('password', this.state.password);
-      Axios.post('http://localhost/nokia_app/php/login.php', {
+      Axios.post('http://localhost/nokia/login.php', {
           parameters
       }).then((response) => {
           if(response.data.message){
@@ -49,8 +49,6 @@ class App extends React.Component{
     this.setState({showPopup:childData});
 
    }
-
-  
 
     render() {
 
